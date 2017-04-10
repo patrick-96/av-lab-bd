@@ -16,7 +16,7 @@ public class TelaQuesito {
 	public JFrame frame;
 	private JTable table_Quesito;
 	private JScrollPane scrollPane_1;
-	JComboBox<Quesito> comboBox_q;
+	static JComboBox<Quesito> comboBox_q;
 
 	/**
 	 * Launch the application.
@@ -25,7 +25,7 @@ public class TelaQuesito {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaQuesito window = new TelaQuesito();
+					TelaQuesito window = new TelaQuesito(comboBox_q);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,8 @@ public class TelaQuesito {
 	/**
 	 * Create the application.
 	 */
-	public TelaQuesito() {
+	public TelaQuesito(JComboBox<Quesito> comboBox_q) {
+		this.comboBox_q = comboBox_q;
 		initialize();
 	}
 
@@ -47,8 +48,7 @@ public class TelaQuesito {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 772, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+				frame.getContentPane().setLayout(null);
 		
 		scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(10, 11, 736, 239);
@@ -69,10 +69,8 @@ public class TelaQuesito {
 			);
 		table_Quesito.setModel(modelo);
 		
-		
 		/*DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
 				new String[] { "Escola", "Quesito", "Maior descartada", "Menor Descartada", "Total" });*/
-
 		QuesitoConsultaController qcController=new QuesitoConsultaController(table_Quesito, comboBox_q);
 		qcController.tabelaVerQuesito();
 	}

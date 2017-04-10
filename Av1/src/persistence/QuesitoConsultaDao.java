@@ -2,14 +2,12 @@ package persistence;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 
 import model.Quesito;
 import model.QuesitoConsulta;
@@ -29,11 +27,12 @@ public class QuesitoConsultaDao {
 	public List<QuesitoConsulta> consultaQuesitoQuesito()throws SQLException{
 		List<QuesitoConsulta> listaQuesitoConsulta=new ArrayList<QuesitoConsulta>();
 			//try {
+		
 			
 					String sql = "exec pc_verificaQ ?";
 					
 			CallableStatement cs = c.prepareCall(sql);
-			cs.setString(1,(String) comboBox_q.getSelectedItem().toString());
+			cs.setString(1,  comboBox_q.getSelectedItem().toString());
 		    
 			ResultSet rs = cs.executeQuery();
 			while (rs.next()) {

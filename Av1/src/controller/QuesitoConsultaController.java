@@ -22,6 +22,9 @@ public class QuesitoConsultaController implements IQuesitoConsultaController{
 	}
 	
 	
+	
+
+
 	@Override
 	public void tabelaVerQuesito() {
 		if(table_Quesito!=null){

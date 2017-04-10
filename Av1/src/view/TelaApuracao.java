@@ -61,6 +61,7 @@ public class TelaApuracao extends JFrame {
 		JComboBox<Escola> comboBox_e = new JComboBox<Escola>();
 		comboBox_e.setBounds(223, 40, 203, 20);
 		contentPane.add(comboBox_e);
+		
 
 		JComboBox<Jurado> comboBox_j = new JComboBox<Jurado>();
 		comboBox_j.setBounds(223, 87, 180, 20);
@@ -115,7 +116,7 @@ public class TelaApuracao extends JFrame {
 		btnInserir.addActionListener(bt);
 		VerTotalController vtc=new VerTotalController(TelaApuracao,btnVerTotal);
 		btnVerTotal.addActionListener(vtc);
-		VerQuesitoController qtc=new VerQuesitoController(TelaApuracao, btnVerQuesito);
+		VerQuesitoController qtc=new VerQuesitoController(TelaApuracao, btnVerQuesito,comboBox_q);
 		btnVerQuesito.addActionListener(qtc);
 		
 

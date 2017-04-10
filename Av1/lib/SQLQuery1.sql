@@ -3,6 +3,8 @@ go
 use av1
 drop table Quesito
 
+select * from Quesito
+
 
 create function fn_separanota1(@id_escola int, @id_quesito int)
 returns decimal(4,1)
@@ -222,13 +224,14 @@ drop function fn_sambao
 
 select dbo.fn_sambao(1) as soma
 
-create table Quesito(id_q int identity(1,1) primary key,
-nome_q varchar(100))
-
 drop table Quesito
 drop table Escola
 drop table Jurado
 drop table Nota
+create table Quesito(id_q int identity(1,1) primary key,
+nome_q varchar(100))
+
+
 
 create table Jurado(id_j int identity primary key,
 nome_j varchar(100))
